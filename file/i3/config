@@ -1,0 +1,205 @@
+set $mod Mod4
+#set $term "evilvte -fn '5th Element 3'"
+set $term "evilvte -fn 'bitocra7 5'"
+#set $term "evilvte -fn 'bitocra13 11'"
+#set $term "evilvte -fn 'bitocra 9'"
+#set $term "evilvte -fn 'Fira Mono Medium 11'"
+#set $term st
+#set $term "sakura"
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:5thElement normal 3
+
+#exec_always --no-startup-id cd ~/wkosd; ./index.ls
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec ~/.config/i3/run-notify.sh $term
+bindsym $mod+Shift+Return exec ~/.config/i3/run-notify.sh uzbl-browser
+
+new_window 1pixel
+hide_edge_borders both
+
+for_window [title="^uzbledit$"] floating enable
+for_window [title="^webcam$"] floating enable, border 1pixel
+
+# class                 border  backgr. text    indicator
+client.focused          #00ffff #00ffff #000000 #ffff00
+client.focused_inactive #000000 #000000 #333333 #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# start dmenu (a program launcher)
+bindsym $mod+r exec dmenu_run -fn "bitocra:size=8" -nb "#111" -nf "#0ff" -sb "#0ff" -sf "#000"
+
+# Google-research something
+# en masse
+bindsym $mod+mod1+n exec ~/scpt/googleopen/dmenuwrap.sh 3
+# just first link
+bindsym $mod+mod1+m exec ~/scpt/googleopen/dmenuwrap.sh 1
+
+# Control volume
+bindsym XF86AudioRaiseVolume exec ~/.config/i3/set-volume.sh up
+bindsym XF86AudioLowerVolume exec ~/.config/i3/set-volume.sh down
+bindsym XF86AudioMute        exec ~/.config/i3/set-volume.sh zero
+
+# Control backlight
+bindsym XF86MonBrightnessUp   exec ~/.config/i3/set-backlight.sh up
+bindsym XF86MonBrightnessDown exec ~/.config/i3/set-backlight.sh down
+
+bindsym $mod+Mod1+c exec ~/.config/i3/run-notify.sh chromium
+bindsym $mod+Mod1+f exec ~/.config/i3/run-notify.sh firefox
+bindsym $mod+Mod1+g exec ~/.config/i3/run-notify.sh gimp
+bindsym $mod+Mod1+i exec ~/.config/i3/run-notify.sh inkscape
+bindsym $mod+Mod1+p exec ~/.config/i3/run-notify.sh mypaint
+bindsym $mod+Mod1+s exec ~/.config/i3/run-notify.sh steam-native -no-browser
+bindsym $mod+Mod1+z exec ~/.config/i3/run-notify.sh zathura
+
+bindsym $mod+Mod1+Ctrl+q exec systemctl poweroff
+bindsym $mod+Mod1+Ctrl+r exec systemctl reboot
+bindsym $mod+Mod1+Ctrl+h exec systemctl hibernate
+bindsym $mod+Mod1+Ctrl+s exec systemctl suspend
+
+bindsym $mod+Shift+Ctrl+Down exec xrandr --output eDP1 --rotate normal
+bindsym $mod+Shift+Ctrl+Left exec xrandr --output eDP1 --rotate right
+bindsym $mod+Shift+Ctrl+Right exec xrandr --output eDP1 --rotate left
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+n split h
+
+# split in vertical orientation
+bindsym $mod+b split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+f floating toggle
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+s scratchpad show
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+#bindsym $mod+Shift+t reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec i3-msg exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Shift+h resize shrink width 3 px or 3 ppt
+        bindsym Shift+j resize grow height 3 px or 3 ppt
+        bindsym Shift+k resize shrink height 3 px or 3 ppt
+        bindsym Shift+l resize grow width 3 px or 3 ppt
+
+        # same bindings, but for the arrow keys
+        #bindsym Left resize shrink width 10 px or 10 ppt
+        #bindsym Down resize grow height 10 px or 10 ppt
+        #bindsym Up resize shrink height 10 px or 10 ppt
+        #bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Ctrl+c mode "default"
+}
+
+bindsym $mod+z mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        position top
+        tray_output none
+        #status_command i3status
+        status_command node ~/scpt/statusline/index.js
+        colors {
+                background #000000
+                statusline #00ffff
+                focused_workspace  #000000 #00ffff #00ffff
+                active_workspace   #ffffff #000000 #00ffff
+                inactive_workspace #000000 #000000 #00ffff
+                urgent_workspace   #000000 #000000 #ff0000
+        }
+}

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+readonly KEY="$1"
+
+case "$KEY" in
+"C-b") while read file; do
+    # Set tihs one as wallpaper
+    feh --bg-fill "$file"
+    # Symlink it to remember later
+    ln -sf "$file" ~/img/wal/current
+done ;;
+esac

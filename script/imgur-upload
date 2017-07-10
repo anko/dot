@@ -1,0 +1,4 @@
+#!/bin/bash
+[ -f ~/.imgur_api_key ] && . ~/.imgur_api_key
+res=$(curl -sH "Authorization: Client-ID $API_KEY" -F "image=@$1" "https://api.imgur.com/3/upload")
+echo "$res" | jq --raw-output '.data.link'

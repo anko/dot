@@ -1,0 +1,53 @@
+[user]
+	email = an@cyan.io
+	name  = Antti Korpi
+    signingkey = "A0A29EE6B6D4434564D5E4AD3B09ED06227B3156"
+[core]
+    editor = nvim
+    pager  = less -+F -+X
+[merge]
+    tool = nvim -d
+[color]
+	status      = auto
+	branch      = auto
+	interactive = auto
+	diff        = auto
+[alias]
+    a   = add
+    u   = reset HEAD --
+    s   = status --short
+    sw = "!clear;inotifywait --quiet -mr -e modify,move,create,delete --format \"%f %e\" @./.git . | \
+while read file; do \
+    clear;\
+    git status --short;\
+    git --no-pager diff --shortstat;\
+done;"
+    f   = fetch
+    p   = push
+    i   = init
+    cl  = clone
+    ch  = checkout
+
+    b   = branch
+    bm  = branch -m
+
+    c   = commit
+    cm  = commit --amend
+    ca  = commit --all
+    cam = commit --all --amend
+    cf  = commit --amend --reuse-message HEAD
+    caf = commit --all --amend --reuse-message HEAD
+
+    l   = log --graph --all --decorate --oneline
+    la  = log --graph --all --decorate
+    ld  = log -U
+
+    d   = diff
+    ds  = diff --staged
+
+    rb  = rebase --interactive
+    rbc = rebase --continue
+[push]
+	default = simple
+[fetch]
+    prune = true

@@ -1,0 +1,7 @@
+set recolor-keephue
+set selection-clipboard clipboard
+set font "bitocra7 normal 6"
+
+map i recolor
+map d toggle_page_mode 2
+map b toggle_statusbar

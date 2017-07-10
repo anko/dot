@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+# Show my wallpapers, so I can pick one out.
+setopt EXTENDED_GLOB
+sxiv -t ~/img/wal/(*~current) # except the `current` symlink

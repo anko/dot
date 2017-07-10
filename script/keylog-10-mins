@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+# Every 10 minutes, show how many keyboard keys I've pressed in that time.
+xkbcat \
+    | stdbuf -o0 ts %s \
+    | stdbuf -o0 cut -d" " -f1 \
+    | while read date; do
+        echo "$date / 600 * 600" | bc
+        done \
+    | stdbuf -o0 uniq -c
