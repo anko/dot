@@ -1,35 +1,34 @@
-# dots
+![dots][header-image]
 
-Here are my [dotfiles][wp-dotfiles].
-
-I prefer absolutely minimal program output, and am always ready to remap my
-muscle memory to save a few keystrokes, or decipher 6-pixel tall fonts just to
-fit another terminal on screen.  If that sounds like fun to you, maybe you'll
-find something here you can use.
-
-Organisation:
-
- - [`files/`](files/) contains dotfiles.  Their purposes should be clear from
-   the filename.
+ - [`files/`](files/) contains my [dotfiles][wiki-dotfiles].  Their purposes
+   should be clear from the filename.
  - [`script/`](script/) contains scripts I find useful enough to keep in my
    `$PATH`.  No binaries, just text stuff.
 
+I aggressively minimise visual output and keystrokes, even at the expense of
+nobody else being able to use my computer, and having to memorise a hundred
+shortcuts.  This is all hyper-optimised for *me specifically*, but feel free to
+take what you find useful.
+
 ## The install script
 
-Chances are you'd want to use [one of many other—probably better—ways to
-scatter your dotfiles](https://wiki.archlinux.org/index.php/Dotfiles), but this
-is my way.
+This is my way to scatter my dotfiles onto a new system.  You may prefer one of
+[many other ways][archwiki-dotfiles].
 
-The `./install` script symlinks stuff from `file/` to the places specified in
-it.  *Be careful*, for it wields the `--force`.  If unsure, run `./install
---dry-run` first, and it will tell you what it *would have done*, instead of
-doing it.
+The `./install.zsh` has a [DSL][wiki-dsl] expressing how each conf file location on the
+system should be generated.  Most are just instructions to symlink them to a
+`file/` here.  The script wields the `--force`, so be careful.  If unsure, run
+`./install.zsh --dry-run` first.
 
-The `install` requires these programs:
+The install requires—
 
  - `zsh` to run the script,
  - `curl` to download `plug.vim`,
  - `nvim` to run plug.vim to install plugins, and
  - `git` for plug.vim to download plugins
 
-[wp-dotfiles]: https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments
+
+[header-image]: https://user-images.githubusercontent.com/5231746/28067800-b22aaeea-663a-11e7-8938-ee799ab1eef8.png
+[archwiki-dotfiles]: https://wiki.archlinux.org/index.php/Dotfiles
+[wiki-dotfiles]: https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments
+[wiki-dsl]: https://en.wikipedia.org/wiki/Domain-specific_language
