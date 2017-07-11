@@ -1,9 +1,7 @@
 ![dots][header-image]
 
- - [`files/`](files/) contains my [dotfiles][wiki-dotfiles].  Their purposes
-   should be clear from the filename.
- - [`script/`](script/) contains scripts I find useful enough to keep in my
-   `$PATH`.  No binaries, just text stuff.
+ - [`file/`](file/) contains my [dotfiles][wiki-dotfiles].
+ - [`script/`](script/) contains scripts I keep in my [`$PATH`][wiki-path].
 
 I aggressively minimise visual output and keystrokes, even at the expense of
 nobody else being able to use my computer, and having to memorise a hundred
@@ -28,7 +26,8 @@ The install requires—
  - `git` for plug.vim to download plugins
 
 
-[header-image]: https://user-images.githubusercontent.com/5231746/28067800-b22aaeea-663a-11e7-8938-ee799ab1eef8.png
 [archwiki-dotfiles]: https://wiki.archlinux.org/index.php/Dotfiles
+[header-image]: https://user-images.githubusercontent.com/5231746/28067800-b22aaeea-663a-11e7-8938-ee799ab1eef8.png
 [wiki-dotfiles]: https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments
 [wiki-dsl]: https://en.wikipedia.org/wiki/Domain-specific_language
+[wiki-path]: https://en.wikipedia.org/wiki/PATH_(variable)
