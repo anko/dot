@@ -51,7 +51,7 @@ function gen () {
 # vim
 gen '~/.config/nvim/init.vim' "$(link nvim/init.vim)"
 gen '~/.vimrc' 'ln -s ~/.config/nvim/init.vim $TARGET'
-# Download plug.vim if necessary, and install plugs specified in .zshrc too
+# Download plug.vim if necessary. Follow up with a :PlugInstall.
 gen '~/.config/nvim/autoload/plug.vim' \
     'curl -fLo $TARGET --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
