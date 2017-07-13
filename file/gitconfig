@@ -24,6 +24,7 @@
     cm  = commit --amend
     d   = diff
     ds  = diff --staged
+    dw  = diff --word-diff=color
     f   = fetch
     i   = init
     l   = log --graph --all --decorate --oneline
