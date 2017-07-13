@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+# `sort`, but with the C locale.
+LC_ALL=C sort $@
+
+# Rationale:
+#
+# For whatever reason, in some locales (including mine), 'abc' is sorted prior
+# to 'a c', which I think is nonsense.  The C locale is much more sensible, and
+# uses native byte values that are constant.  Sanity restored.
