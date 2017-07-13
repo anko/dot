@@ -1,0 +1,8 @@
+#!/bin/sh
+# UNIX epoch date
+
+if [ -n "$1" ]; then
+  date +%s --date="$*"
+else
+  date +%s
+fi
