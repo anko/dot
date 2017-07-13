@@ -30,6 +30,7 @@ done;"
 
     b   = branch
     bm  = branch -m
+    B   = checkout -b
 
     c   = commit
     cm  = commit --amend
