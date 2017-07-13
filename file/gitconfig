@@ -36,6 +36,9 @@
     rbi = rebase --interactive
     s   = status --short
     ws  = !git-watch-status # delegate to script
+[commit]
+    # Disable status and tutorial comments when entering commit message
+    status = false
 [push]
     # Only no-arg push to where you'd no-arg pull from
     default = simple
