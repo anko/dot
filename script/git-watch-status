@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+function git-stats () {
+    clear
+    git --no-pager diff --shortstat
+    git status --short
+}
+
+# Initially
+git-stats
+
+# And again whenever a file changes
+inotifywait --quiet --monitor --recursive \
+    --event modify,move,create,delete \
+    --format "%f %e" @./.git . \
+    | while read file; do git-stats; done

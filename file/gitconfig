@@ -1,54 +1,48 @@
 [user]
-	email = an@cyan.io
-	name  = Antti Korpi
+    email = an@cyan.io
+    name  = Antti Korpi
     signingkey = "A0A29EE6B6D4434564D5E4AD3B09ED06227B3156"
 [core]
     editor = nvim
     pager  = less -+F -+X
+             # -+F means 'stay open even if file fits without scrolling'
+             # -+X means 'send termcap sequences so terminal content doesn't
+             #     get overwritten'
 [merge]
     tool = nvim -d
-[color]
-	status      = auto
-	branch      = auto
-	interactive = auto
-	diff        = auto
 [alias]
+    B   = checkout -b # branch create & checkout
     a   = add
-    u   = reset HEAD --
-    s   = status --short
-    sw = "!clear;inotifywait --quiet -mr -e modify,move,create,delete --format \"%f %e\" @./.git . | \
-while read file; do \
-    clear;\
-    git status --short;\
-    git --no-pager diff --shortstat;\
-done;"
-    f   = fetch
-    p   = push
-    i   = init
-    cl  = clone
-    ch  = checkout
-
     b   = branch
-    bm  = branch -m
-    B   = checkout -b
-
     c   = commit
-    cm  = commit --amend
     ca  = commit --all
+    caf = commit --all --amend --reuse-message HEAD
     cam = commit --all --amend
     cf  = commit --amend --reuse-message HEAD
-    caf = commit --all --amend --reuse-message HEAD
-
-    l   = log --graph --all --decorate --oneline
-    la  = log --graph --all --decorate
-    ld  = log -U
-
+    ch  = checkout
+    cl  = clone
+    cm  = commit --amend
     d   = diff
     ds  = diff --staged
-
-    rb  = rebase --interactive
+    f   = fetch
+    i   = init
+    l   = log --graph --all --decorate --oneline
+    la  = log --graph --all --decorate
+    ld  = log --unified # log with diffs (what a strangely named flag)
+    p   = push
+    rb  = rebase
     rbc = rebase --continue
+    rbi = rebase --interactive
+    s   = status --short
+    ws  = !git-watch-status # delegate to script
 [push]
-	default = simple
+    # Only no-arg push to where you'd no-arg pull from
+    default = simple
 [fetch]
+    # Remove tracking refs to things deleted from remote
     prune = true
+[color]
+    status      = auto
+    branch      = auto
+    interactive = auto
+    diff        = auto
