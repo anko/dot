@@ -18,6 +18,7 @@ setopt HIST_IGNORE_SPACE  # Don't save commands that start with a space
 setopt HIST_NO_STORE      # Don't store history commands in history
 setopt HIST_IGNORE_DUPS   # Ignore duplicates in history
 setopt INC_APPEND_HISTORY # Write history immediately, rather than on exit
+setopt INTERACTIVE_COMMENTS # Allow comments on command line
 
 function command_not_found_handler() {
     print -P "%F{001}Missing command %F{009}$1%f";
