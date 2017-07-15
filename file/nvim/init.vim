@@ -12,6 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'reedes/vim-pencil'
 Plug 'lambdatoast/elm.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 "
@@ -134,6 +135,11 @@ nnoremap ,l :set number!<cr>
 "map / <Plug>(incsearch-forward)
 "map ? <Plug>(incsearch-backward)
 "map g/ <Plug>(incsearch-stay)
+
+highlight Normal ctermbg=none
+let g:indent_guides_auto_colors = 0
+highlight IndentGuidesOdd  ctermbg=0
+highlight IndentGuidesEven ctermbg=235
 
 "
 " Highlights
