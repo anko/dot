@@ -120,16 +120,18 @@ make_prompt() {
 PROMPT=$'$(make_prompt) '
 
 pwd-to-clip() {
-    pwd | xclip -selection clipboard
+    pwd | clip i
 }
 cd-to-clip() {
-    cd `xclip -o -selection clipboard`
+    cd "$(clip o)"
     zle reset-prompt
 }
 quit() { exit }
 zle -N pwd-to-clip
 zle -N cd-to-clip
 zle -N quit
+bindkey '\C-y' pwd-to-clip
+bindkey '\C-p' cd-to-clip
 bindkey -M viins ,y pwd-to-clip
 bindkey -M viins ,p cd-to-clip
 bindkey -M viins ,q quit
@@ -153,7 +155,7 @@ alias -g .....='../../../..'
 # For making things colourful
 alias colourise='grc --stdout --stderr --colour=auto'
 
-alias c='cd'
+alias c='clip'
 alias chx='chmod +x'
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 alias df='df -h'
@@ -186,8 +188,6 @@ alias sxiv='sxiv -a'
 alias sx='startx'
 alias top='htop'
 alias v='nvim'
-alias xci='xclip -i -selection clipboard'
-alias xco='xclip -o -selection clipboard'
 alias sudo="sudo --prompt='$(print -P %S%F{15}sudo%f%s password for %F{yellow}%%U%f) > '"
 autoload -U zmv ; alias mmv='noglob zmv -W' # pattern-matching mv
 

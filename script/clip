@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+clip-in  () { xclip -in -selection clipboard }
+clip-out () { xclip -out -selection clipboard }
+
+if (( $# )); then
+    case "$1" in
+        i) clip-in ;;
+        o) clip-out ;;
+        *)
+            (>&2 echo "Unexpected argument '$1'")
+            exit 1
+            ;;
+    esac
+else
+    clip-out
+fi
