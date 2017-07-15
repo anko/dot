@@ -54,9 +54,9 @@ make_prompt() {
     # because it wants to colourise a directory in the middle of the directory
     # path.
     make_path() {
-        local DIR_PATH=$1
-        local COLOUR=$2
-        local TRIM=$3
+        local DIR_PATH="$1"
+        local COLOUR="$2"
+        local TRIM="$3"
 
         local BEFORE=""
         local AFTER=""
@@ -64,24 +64,24 @@ make_prompt() {
         if [[ $DIR_PATH = / ]]; then
             BEFORE=""
             AFTER="/"
-        elif [[ $DIR_PATH = $HOME ]]; then
+        elif [[ "$DIR_PATH" = "$HOME" ]]; then
             BEFORE=""
             AFTER="~"
         else
-            BEFORE=$(print_at '%~' $DIR_PATH)
-            BEFORE=$(print_at "${BEFORE%/*}/" $DIR_PATH)
-            AFTER=$(print_at '%1~' $DIR_PATH)
-            if [[ $BEFORE = / ]]; then
+            BEFORE=$(print_at '%~' "$DIR_PATH")
+            BEFORE=$(print_at "${BEFORE%/*}/" "$DIR_PATH")
+            AFTER=$(print_at '%1~' "$DIR_PATH")
+            if [[ "$BEFORE" = / ]]; then
                 BEFORE="/"
                 AFTER=$(echo "$AFTER" | tail -c+2)
             fi
-            if [[ -d $TRIM ]]; then # if given base path to trim by
-                TRIM=$(print_at '%~' $TRIM)
-                BEFORE=${$(echo $BEFORE)#$(echo $TRIM)}
+            if [[ -d "$TRIM" ]]; then # if given base path to trim by
+                TRIM=$(print_at '%~' "$TRIM")
+                BEFORE=${"$(echo "$BEFORE")"#"$(echo "$TRIM")"}
             else
             fi
         fi
-        echo "%F{$COLOUR_MAIN}${BEFORE}%f%F{$COLOUR}$AFTER%f"
+        echo "%F{$COLOUR_MAIN}$BEFORE%f%F{$COLOUR}$AFTER%f"
     }
 
     # Add a status indicator to the end, and indicators to the start for
@@ -98,20 +98,22 @@ make_prompt() {
 
     if [[ -d $(git rev-parse --show-toplevel 2>/dev/null) ]]; then
         # We're in a git repo.
-        BASE=$(git rev-parse --show-toplevel)
+        BASE="$(git rev-parse --show-toplevel)"
         if [[ $PWD = $(git rev-parse --show-toplevel) ]]; then
             # We're in the repository root.
             # Just show the root coloured.
-            echo "$(assemble_final_prompt $(make_path $PWD $COLOUR_GIT_ROOT_BASENAME))"
+            echo "$(assemble_final_prompt "$(make_path $PWD $COLOUR_GIT_ROOT_BASENAME)")"
         else
             # We're somewhere below the repository root.
             # Show the root coloured, and the path after it as normal.
-            echo "$(assemble_final_prompt $(make_path $BASE $COLOUR_GIT_ROOT)$(make_path $PWD $COLOUR_BASENAME $BASE))"
+            PATH_TO_ROOT=$(make_path "$BASE" "$COLOUR_GIT_ROOT")
+            PATH_FROM_ROOT=$(make_path "$PWD" "$COLOUR_BASENAME" "$BASE")
+            echo "$(assemble_final_prompt "$PATH_TO_ROOT$PATH_FROM_ROOT")"
         fi
     else
         # Basic case.
         # Show the current path, coloured.
-        echo "$(assemble_final_prompt $(make_path $PWD $COLOUR_BASENAME))"
+        echo "$(assemble_final_prompt "$(make_path $PWD $COLOUR_BASENAME)")"
     fi
 }
 PROMPT=$'$(make_prompt) '
