@@ -11,9 +11,9 @@
 [merge]
     tool = nvim -d
 [alias]
-    B   = checkout -b # branch create & checkout
     a   = add
     b   = branch
+    bb  = checkout -b
     c   = commit
     ca  = commit --all
     caf = commit --all --amend --reuse-message HEAD
