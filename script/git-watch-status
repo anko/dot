@@ -6,35 +6,15 @@ function git-stats () {
     git status --short
 }
 
-tput smcup # save terminal state
+# Save terminal state; restore on exit
+tput smcup
+trap 'tput rmcup' INT TERM
 
 # Initially
 git-stats
 
 # And again whenever a file changes
-#
-# The while-loop is deliberately in a subshell, so it gets started first.  Then
-# $! contains the PID of `inotifywait`, because it starts afterward.
 inotifywait --quiet --monitor --recursive \
-    --event modify,move,create,delete \
+    --event close_write,move,create,delete \
     --format "%f %e" @./.git . \
-    > >(while read file; do git-stats; done) &
-
-# Save PID of inotifywait for killing later
-INOTIFY_PID=$!
-
-while : ; do # forever
-    # Enable raw mode, disable echo
-    stty raw -echo
-    # blocking-read 1 char from user
-    key=$(dd bs=1 count=1 </dev/tty 2> /dev/null)
-    # Disable raw mode, enable echo
-    stty -raw echo
-    # Quit if received q or C-c
-    if [ "$key" = q ] || [ "$key" = '' ] ; then
-        kill $INOTIFY_PID
-        break
-    fi
-done
-
-tput rmcup # restore terminal state
+    | while read file; do git-stats; done
