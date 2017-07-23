@@ -42,7 +42,7 @@ make_prompt() {
     # cd to the given directory so we can use zsh's prompt expansion (print -P)
     # with %~ expanded relative to it.
     print_at() {
-        ( cd $2 ; print -P $1 )
+        ( cd -q $2 ; print -P $1 )
     }
 
     # Given a directory path, a last-segment highlight colour, and a path to
