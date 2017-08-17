@@ -15,7 +15,7 @@ dunst &
 ibus-daemon --xim &
 
 # Reduce eye strain at nighttime
-redshift
+redshift &
 
 # Lower delay before key repeat
 xset r rate 350 40
