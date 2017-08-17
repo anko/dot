@@ -155,6 +155,7 @@ alias -g .....='../../../..'
 # For making things colourful
 alias colourise='grc --stdout --stderr --colour=auto'
 
+alias tmp='cd $(mktemp --directory)'
 alias c='clip'
 alias chx='chmod +x'
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
