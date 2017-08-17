@@ -1,6 +1,5 @@
 #!/bin/bash
 # Take screenshot, upload to imgur, put link in clipboard
-img=$(mktemp '/tmp/img-XXXXXX.png')
-maim --select --hidecursor "$img"
-imgur-upload "$img" | xclip -selection clipboard
-notify-send "imgur link on clipboard for $img"
+IMG="$(shot)"
+imgur-upload "$IMG" | clip i
+notify-send "imgur link for $IMG in clipboard"

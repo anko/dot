@@ -1,1 +1,4 @@
-maim --select --hidecursor ~/shot.png
+#!/usr/bin/bash
+FILE_NAME="$HOME/shot/$(date +%s)_$(uuidgen --random | head -c8).png"
+maim --select --hidecursor "$FILE_NAME"
+echo "$FILE_NAME"
