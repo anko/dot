@@ -5,8 +5,8 @@ clip-out () { xclip -out -selection clipboard }
 
 if (( $# )); then
     case "$1" in
-        i) clip-in ;;
-        o) clip-out ;;
+        i|in) clip-in ;;
+        o|out) clip-out ;;
         *)
             (>&2 echo "Unexpected argument '$1'")
             exit 1
