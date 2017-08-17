@@ -156,7 +156,7 @@ highlight NonText ctermfg=240
 highlight ModeMsg ctermbg=cyan ctermfg=16 cterm=none
 " Tweaks
 highlight Search ctermbg=119 ctermfg=Black
-highlight Comment ctermfg=37
+highlight Comment ctermfg=240
 highlight Visual ctermbg=238
 
 "
