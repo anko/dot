@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+inotifywait --quiet --monitor --recursive \
+    --event close_write,move,create,delete \
+    --format "%f %e" @./.git .

@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+if (( $# > 0 )); then
+    while read LINE; do
+        eval "$@"
+    done
+else
+    echo 'no command specified' &> /dev/stderr
+fi
