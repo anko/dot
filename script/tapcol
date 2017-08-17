@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+# Simple TAP 13 protocol colouriser
+sed --regexp-extended \
+    -e "s/^(ok) ([0-9]+)/$(print -P '%F{10}')\\1$(print -P '%f') $(print -P '%F{green}')\\2$(print -P '%f')/g" \
+    -e "s/^(not ok) ([0-9]+)/$(print -P '%F{9}')\\1$(print -P '%f') $(print -P '%F{red}')\\2$(print -P '%f')/g" \
+    -e "s/^#(.*)/$(print -P '%F{white}')\\0$(print -P '%f')/g" \
+    -e "s/^[0-9]+\\.\\.[0-9]+$/$(print -P '%F{cyan}')\\0$(print -P '%f')/g" \
+    -e "s/^TAP version.*$/$(print -P '%F{cyan}')\\0$(print -P '%f')/g"
