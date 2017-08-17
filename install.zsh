@@ -64,7 +64,7 @@ gen '~/.zprofile' "$(link zsh/profile.zsh)"
 # X11
 gen '~/.xinitrc'   "$(link xinitrc.sh)"
 gen '~/.Xmodmap'   "$(link xmodmap)"
-gen '~/.Xcompose'  "$(link xcompose)"
+gen '~/.XCompose'  "$(link xcompose)"
 
 gen '~/.config/zathura/zathurarc'     "$(link zathurarc)"          # zathura
 gen '~/.config/compton.conf'          "$(link compton.conf)"       # compton
