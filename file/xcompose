@@ -1,13 +1,29 @@
-<Multi_key> <Left> <Left>       : "←"   leftarrow   # LEFTWARDS ARROW
-<Multi_key> <Up> <Up>           : "↑"   uparrow     # UPWARDS ARROW
-<Multi_key> <Right> <Right>     : "→"   rightarrow  # RIGHTWARDS ARROW
-<Multi_key> <Down> <Down>       : "↓"   downarrow   # DOWNWARDS ARROW
-
+<Multi_key> <Left>  <Left>  : "←"   leftarrow   # LEFTWARDS ARROW
+<Multi_key> <Up>    <Up>    : "↑"   uparrow     # UPWARDS ARROW
+<Multi_key> <Right> <Right> : "→"   rightarrow  # RIGHTWARDS ARROW
+<Multi_key> <Down>  <Down>  : "↓"   downarrow   # DOWNWARDS ARROW
+<Multi_key> <Down>  <Right> : "↘"
+<Multi_key> <Right> <Down>  : "↘"
+<Multi_key> <Down>  <Left>  : "↙"
+<Multi_key> <Left>  <Down>  : "↙"
+<Multi_key> <Up>    <Left>  : "↖"
+<Multi_key> <Left>  <Up>    : "↖"
+<Multi_key> <Up>    <Right> : "↗"
+<Multi_key> <Right> <Up>    : "↗"
+<Multi_key> <Left>  <Right> : "↔"
+<Multi_key> <Right> <Left>  : "↔"
+<Multi_key> <Up> <Down>     : "↕"
+<Multi_key> <Down> <Up>     : "↕"
 <Multi_key> <Left> <minus>          : "⇠"   U21E0       # LEFTWARDS DASHED ARROW
 <Multi_key> <Up> <minus>            : "⇡"   U21E1       # UPWARDS DASHED ARROW
 <Multi_key> <Right> <minus>         : "⇢"   U21E2       # RIGHTWARDS DASHED ARROW
 <Multi_key> <Down> <minus>          : "⇣"   U21E3       # DOWNWARDS DASHED ARROW
 
+<Multi_key> <backslash> <minus>		: "­"	U00AD		# SOFT HYPHEN
+
 <Multi_key> <asterisk> <asterisk> : "★" U2605
 <Multi_key> <o> <k> : "✓" U2713 # check mark
+<Multi_key> <k> <k> : "✔" U2714 # HEAVY CHECK MARK
+
 <Multi_key> <slash> <question> : "⸮" U2E2E # REVERSED QUESTION MARK (IRONY PUNCTUATION)
+<Multi_key> <slash> <exclam> <backslash> : "⚠"  U26A0           # WARNING SIGN
