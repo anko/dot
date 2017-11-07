@@ -14,8 +14,11 @@ dunst &
 # Enable Japanese input
 ibus-daemon --xim &
 
-# Reduce eye strain at nighttime
-redshift &
+(
+if [ "$(cat /sys/class/drm/card0-DP-2/status)" = connected ]; then
+    /usr/bin/xrandr --output eDP1 --off
+fi
+) &
 
 # Lower delay before key repeat
 xset r rate 350 40
