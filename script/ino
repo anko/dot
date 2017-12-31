@@ -1,4 +1,10 @@
 #!/usr/bin/zsh
+
+FILES="."
+if (( $# > 0 )); then
+    FILES="$@"
+fi
+
 inotifywait --quiet --monitor --recursive \
     --event close_write,move,create,delete \
-    --format "%f %e" @./.git .
+    --format "%f %e" @./.git "$FILES"
