@@ -76,4 +76,3 @@ gen '~/.gitconfig'                    "$(link gitconfig)"          # git
 gen '~/.config/dunst/dunstrc'         "$(link dunstrc)"            # dunst
 gen '~/.config/i3'                    "$(link i3)"                 # i3
 gen '~/.config/mpv/input.conf'        "$(link mpv-input.conf)"     # mpv
-gen '~/.config/redshift.conf'         "$(link redshift.conf)"      # redshift
