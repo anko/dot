@@ -4,5 +4,4 @@ CONFIG_FILE="${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs"
 # Prepend to $PATH for convenience
 PATH="$HOME/dot/script:$HOME/bin:$HOME/.npm-global/bin:$PATH"
 
-# GUI please
 startx
