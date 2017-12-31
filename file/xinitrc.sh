@@ -1,36 +1,18 @@
-# Remap the keyboard
-setxkbmap -layout gb
-[[ -s ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+(if [ "$(cat /sys/class/drm/card0-DP-2/status)" = connected ]; then
+    /usr/bin/xrandr --output eDP-1 --off
+fi) &
 
-# Hide mouse
-unclutter -root -grab -idle 2 -reset &
+setxkbmap -layout gb                    # gb layout
+xmodmap ~/.Xmodmap                      # key remaps
+xsetroot -cursor_name left_ptr          # root window normal cursor
+xset r rate 350 40                      # lower key repeat delay
 
-# Enable window transparency
-compton &
+unclutter -root -grab -idle 2 -reset &  # hide mouse when idle
+compton &                               # window transparency
+dunst &                                 # desktop notifications
+ibus-daemon --xim &                     # Japanese input
+feh --bg-fill ~/img/wal/current &       # restore saved wallpaper
+keylog-10-mins >> ~/data/keylog10 &     # log keypresses
+firefox-fullscreen-dpms-inhibit &       # workaround timeout during videos
 
-# Enable desktop notifications
-dunst &
-
-# Enable Japanese input
-ibus-daemon --xim &
-
-(
-if [ "$(cat /sys/class/drm/card0-DP-2/status)" = connected ]; then
-    /usr/bin/xrandr --output eDP1 --off
-fi
-) &
-
-# Lower delay before key repeat
-xset r rate 350 40
-
-# Show normal cursor on root window
-xsetroot -cursor_name left_ptr
-
-# Restore wallpaper
-feh --bg-fill /home/an/img/wal/current
-
-# Log keypresses
-keylog-10-mins >> ~/data/keylog10 &
-
-# Start WM
 exec i3
