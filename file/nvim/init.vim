@@ -28,6 +28,9 @@ set noerrorbells                " Just in case I'm on a dumb TTY
 let &t_Co=256                   " More terminal colours please
 set mouse=a                     " Activate mouse support
 set backspace=indent,eol,start  " Backspace through everything in insert mode
+" Work around terminal emulator escape bug (e.g. in evilvte)
+" More info at neovim/neovim#7722
+set guicursor=
 " Tabs
 set tabstop=4                   " A tab is 4 col
 set shiftwidth=4                " With > or <, indent by 4 columns
@@ -44,6 +47,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set nobackup
 set nowritebackup
 set noswapfile
+
 
 "
 " Language-specific
