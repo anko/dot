@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+i3-msg "append_layout $(realpath $1)"
