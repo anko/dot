@@ -3,20 +3,21 @@
  - [`file/`](file/) contains my [dotfiles][wiki-dotfiles].
  - [`script/`](script/) contains scripts I keep in my [`$PATH`][wiki-path].
 
-I aggressively minimise visual output and keystrokes, even at the expense of
-nobody else being able to use my computer, and having to memorise a hundred
-shortcuts.  This is all hyper-optimised for *me specifically*, but feel free to
-take what you find useful.
+My philosophy with personal configs is to aggressively minimise visual output,
+keystrokes, and scriptability, even if it means having to memorise loads of
+detail and making my system unusable by anyone else.
+
+Feel free to copy anything you find useful.
 
 ## The install script
 
 This is my way to scatter my dotfiles onto a new system.  You may prefer one of
 [many other ways][archwiki-dotfiles].
 
-The `./install.zsh` has a [DSL][wiki-dsl] expressing how each conf file location on the
-system should be generated.  Most are just instructions to symlink them to a
-`file/` here.  The script wields the `--force`, so be careful.  If unsure, run
-`./install.zsh --dry-run` first.
+`./install.zsh` has a [DSL][wiki-dsl] expressing how to generate the contents
+of every conf file location on the system.  Most are just instructions to
+symlink them to one of the files under `file/`.  The script overwrites existing
+files, so if unsure, read `./install.zsh --dry-run` first.
 
 The install requires—
 
