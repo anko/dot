@@ -9,8 +9,18 @@
 # Allow '~' to be expanded
 setopt GLOB_SUBST
 
-# Parse flags
-zparseopts -A opts -- -dry-run
+NAME="$0"
+function usage () {
+    echo "Usage: $NAME [--dry-run]"
+}
+
+# Parse flags, rejecting unrecognised arguments
+zparseopts -D -E -A opts -- -dry-run
+if [[ ! -z "$@" ]]; then
+    echo "Unrecognised arguments: $@"
+    usage
+    exit 1
+fi
 DRY_RUN=${+opts[--dry-run]}
 if (( $DRY_RUN )); then
     print -P "%F{33}Dry-run mode!%f"
