@@ -63,6 +63,7 @@ bindsym $mod+Mod1+i exec ~/.config/i3/run-notify.sh inkscape
 bindsym $mod+Mod1+p exec ~/.config/i3/run-notify.sh mypaint
 bindsym $mod+Mod1+s exec ~/.config/i3/run-notify.sh steam-native -no-browser
 bindsym $mod+Mod1+z exec ~/.config/i3/run-notify.sh zathura
+bindsym $mod+Mod1+F1 exec passmenu --type -p 'Auto-type what pass?' -fn 'Gandhi Serif:size=15' -nb '#800' -sb '#f00' -nf '#fff' -sf '#000'
 
 bindsym $mod+Mod1+Ctrl+q exec sudo poweroff
 bindsym $mod+Mod1+Ctrl+r exec sudo reboot
