@@ -2,7 +2,7 @@
     /usr/bin/xrandr --output eDP-1 --off
 fi) &
 
-setxkbmap -layout gb                    # gb layout
+setxkbmap -layout us                    # us layout
 xmodmap ~/.Xmodmap                      # key remaps
 xsetroot -cursor_name left_ptr          # root window normal cursor
 xset r rate 350 40                      # lower key repeat delay

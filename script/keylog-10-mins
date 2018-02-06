@@ -1,7 +1,13 @@
 #!/usr/bin/bash
 # Every 10 minutes, show how many keyboard keys I've pressed in that time.
+
+# First, figure out what the moreutils ts program is called on this system
+TS=''
+command -v ts &>/dev/null && TS='ts'
+command -v moreutils_ts &>/dev/null && TS='moreutils_ts'
+
 xkbcat \
-    | stdbuf -o0 ts %s \
+    | stdbuf -o0 $TS %s \
     | stdbuf -o0 cut -d" " -f1 \
     | while read date; do
         echo "$date / 600 * 600" | bc

@@ -7,6 +7,13 @@
 # https://nosuck.org/2017/02/13/alsa-configuration-of-loopback-device/
 # https://stackoverflow.com/questions/43939191
 
+pcm.looprec {
+    type hw
+    card "Loopback"
+    device 1
+    subdevice 0
+}
+
 pcm.dloop {
     type dmix
     ipc_key 1024
@@ -23,7 +30,7 @@ pcm.dloop {
 pcm.dmain {
     type dmix
     ipc_key 1024
-    slave.pcm "hw:PCH"
+    slave.pcm "hw:Generic"
     slave {
         period_time 0
         period_size 1024

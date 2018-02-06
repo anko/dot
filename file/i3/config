@@ -62,10 +62,9 @@ bindsym $mod+Mod1+p exec ~/.config/i3/run-notify.sh mypaint
 bindsym $mod+Mod1+s exec ~/.config/i3/run-notify.sh steam-native -no-browser
 bindsym $mod+Mod1+z exec ~/.config/i3/run-notify.sh zathura
 
-bindsym $mod+Mod1+Ctrl+q exec systemctl poweroff
-bindsym $mod+Mod1+Ctrl+r exec systemctl reboot
-bindsym $mod+Mod1+Ctrl+h exec systemctl hibernate
-bindsym $mod+Mod1+Ctrl+s exec systemctl suspend
+bindsym $mod+Mod1+Ctrl+q exec sudo poweroff
+bindsym $mod+Mod1+Ctrl+r exec sudo reboot
+bindsym $mod+Mod1+Ctrl+s exec sudo zzz
 
 bindsym $mod+Shift+Ctrl+Down exec xrandr --output eDP1 --rotate normal
 bindsym $mod+Shift+Ctrl+Left exec xrandr --output eDP1 --rotate right

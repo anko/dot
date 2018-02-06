@@ -8,4 +8,4 @@ keysym Caps_Lock = Control_L
 add Control = Control_L
 
 keysym ISO_Level3_Shift = Escape
-keysym Print = Multi_key
+keysym Menu = Multi_key

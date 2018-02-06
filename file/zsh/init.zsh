@@ -90,7 +90,7 @@ make_prompt() {
     assemble_final_prompt() {
         PROMPT_HEAD="%F{yellow}%M%f:"
         case "$HOST" in
-            "39")
+            "39"|"vertex")
                 PROMPT_HEAD=""
                 ;;
         esac
@@ -166,11 +166,14 @@ alias du='du -h'
 alias fehbg='feh --bg-fill'
 alias free='free -h'
 alias g='hub'
+alias gpg='gpg2'
 alias grep='grep --color'
 alias gs='git s' # typo guard
+alias i3r='i3-restore-tree'
 alias ka='killall'
 alias la='ls -a'
 alias ll='ls -lh'
+alias lt='ls --sort=time'
 alias l='ls'
 alias l.='ls -d .*'
 alias ls='ls --color=auto'
@@ -198,6 +201,13 @@ if [[ $(which pacman) ]]; then
     alias pac='sudo pacman -S'
     alias pacu='sudo pacman -Syu'
     alias pacU='sudo pacman -U'
+fi
+
+if [[ $(which xbps-install) ]]; then
+    alias xr='sudo xbps-remove'
+    alias xs='xbps-query -Rs'
+    alias xi='sudo xbps-install -S'
+    alias xu='sudo xbps-install -Su'
 fi
 
 # Keep ibus happy
@@ -271,5 +281,11 @@ source $DOTS_DIR/extract.zsh
 # Load right-hand-side git prompt
 source $DOTS_DIR/git-prompt.zsh
 
-# Load fuzzy finder binds (M-c for cd, C-t for file, C-r for command)
-source /usr/share/fzf/key-bindings.zsh
+insert_fzy_path() {
+    local selected_path
+    selected_path=$(fd | fzy -l20) || return
+    zle -U "${(q)selected_path}"
+    zle reset-prompt
+}
+zle -N insert-fzy-path insert_fzy_path
+bindkey "^f" insert-fzy-path
