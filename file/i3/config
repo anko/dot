@@ -1,16 +1,18 @@
 set $mod Mod4
 #set $term "evilvte -fn '5th Element 3'"
-set $term "evilvte -fn 'bitocra7 5'"
+#set $term "evilvte -fn 'bitocra7 5'"
 #set $term "evilvte -fn 'bitocra13 11'"
 #set $term "evilvte -fn 'bitocra 9'"
 #set $term "evilvte -fn 'Fira Mono Medium 11'"
 #set $term st
 #set $term "sakura"
+set $term "alacritty"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:5thElement normal 4
+#font pango:5thElement normal 4
+font pango:Iosevka 11
 
 #exec_always --no-startup-id cd ~/wkosd; ./index.ls
 

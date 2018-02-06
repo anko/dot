@@ -136,9 +136,9 @@ nnoremap ,l :set number!<cr>
 " XXX I disabled this because of visual bugs until
 " https://github.com/neovim/neovim/pull/6566 is merged.
 "
-"map / <Plug>(incsearch-forward)
-"map ? <Plug>(incsearch-backward)
-"map g/ <Plug>(incsearch-stay)
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 highlight Normal ctermbg=none
 let g:indent_guides_auto_colors = 0
