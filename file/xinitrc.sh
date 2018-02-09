@@ -13,6 +13,5 @@ dunst &                                 # desktop notifications
 ibus-daemon --xim &                     # Japanese input
 feh --bg-fill ~/img/wal/current &       # restore saved wallpaper
 keylog-10-mins >> ~/data/keylog10 &     # log keypresses
-firefox-fullscreen-dpms-inhibit &       # workaround timeout during videos
 
 exec i3
