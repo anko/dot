@@ -289,3 +289,12 @@ insert_fzy_path() {
 }
 zle -N insert-fzy-path insert_fzy_path
 bindkey "^f" insert-fzy-path
+
+insert_fzy_history() {
+    local selected_command
+    selected_command=$(cat "$HISTFILE" | fzy -l20) || return
+    zle -U "$selected_command"
+    zle reset-prompt
+}
+zle -N insert-fzy-history insert_fzy_history
+bindkey "^r" insert-fzy-history
