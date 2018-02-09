@@ -131,7 +131,7 @@ bindkey '\C-e' edit-command-line
 # Bind C-f to search for and insert a file with fzy
 insert_fzy_path() {
     local selected_path
-    selected_path=$(fd | fzy -l20) || return
+    selected_path=$(fd --hidden | fzy -l20) || return
     zle -U "${(q)selected_path}"
     zle reset-prompt
 }
