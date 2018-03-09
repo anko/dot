@@ -16,7 +16,7 @@ bindsym $mod+Mod1+f  exec ~/.config/i3/run-notify firefox
 bindsym $mod+Mod1+g  exec ~/.config/i3/run-notify gimp
 bindsym $mod+Mod1+i  exec ~/.config/i3/run-notify inkscape
 bindsym $mod+Mod1+p  exec ~/.config/i3/run-notify mypaint
-bindsym $mod+Mod1+s  exec ~/.config/i3/run-notify steam-native -no-browser
+bindsym $mod+Mod1+s  exec ~/.config/i3/run-notify steam
 bindsym $mod+Mod1+z  exec ~/.config/i3/run-notify zathura
 bindsym $mod+Mod1+F1 exec passmenu --type -p 'Auto-type what pass?' -fn 'Gandhi Serif:size=15' -nb '#800' -sb '#f00' -nf '#fff' -sf '#000'
 
