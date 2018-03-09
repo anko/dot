@@ -98,6 +98,10 @@ if [[ $(which xbps-install) ]]; then
     alias xu='sudo xbps-install -Su'
 fi
 
+# Bind up and down arrow keys to prefix-search history
+bindkey "^[[A" history-beginning-search-backward #Up Arrow
+bindkey "^[[B" history-beginning-search-forward #Down Arrow
+
 # Bind ,y to yank CWD and ,p to paste it
 # Nice for quickly getting multiple terminal windows into the same dir.
 pwd-to-clip() { pwd | clip i }
