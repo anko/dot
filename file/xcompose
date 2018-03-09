@@ -1,20 +1,22 @@
 include "%L"
 
+<Multi_key> <Tilde> <Tilde> : "≈"
+
 <Multi_key> <Left>  <Left>  : "←"   leftarrow   # LEFTWARDS ARROW
 <Multi_key> <Up>    <Up>    : "↑"   uparrow     # UPWARDS ARROW
 <Multi_key> <Right> <Right> : "→"   rightarrow  # RIGHTWARDS ARROW
 <Multi_key> <Down>  <Down>  : "↓"   downarrow   # DOWNWARDS ARROW
-<Multi_key> <Down>  <Right> : "↘"
-<Multi_key> <Right> <Down>  : "↘"
-<Multi_key> <Down>  <Left>  : "↙"
+<Multi_key> <Down>  <Right> : "↳"
+<Multi_key> <Right> <Down>  : "↴"
+<Multi_key> <Down>  <Left>  : "↵"
 <Multi_key> <Left>  <Down>  : "↙"
-<Multi_key> <Up>    <Left>  : "↖"
+<Multi_key> <Up>    <Left>  : "↰"
 <Multi_key> <Left>  <Up>    : "↖"
-<Multi_key> <Up>    <Right> : "↗"
+<Multi_key> <Up>    <Right> : "↱"
 <Multi_key> <Right> <Up>    : "↗"
-<Multi_key> <Left>  <Right> : "↔"
+<Multi_key> <Left>  <Right> : "⇄"
 <Multi_key> <Right> <Left>  : "↔"
-<Multi_key> <Up> <Down>     : "↕"
+<Multi_key> <Up> <Down>     : "⇅"
 <Multi_key> <Down> <Up>     : "↕"
 <Multi_key> <Left> <minus>          : "⇠"   U21E0       # LEFTWARDS DASHED ARROW
 <Multi_key> <Up> <minus>            : "⇡"   U21E1       # UPWARDS DASHED ARROW
