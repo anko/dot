@@ -76,6 +76,10 @@ gen '~/.xinitrc'   "$(link xinitrc.sh)"
 gen '~/.Xmodmap'   "$(link xmodmap)"
 gen '~/.XCompose'  "$(link xcompose)"
 
+# mpv
+gen '~/.config/mpv/input.conf' "$(link mpv/input.conf)"
+gen '~/.config/mpv/mpv.conf'   "$(link mpv/mpv.conf)"
+
 gen '~/.config/zathura/zathurarc'     "$(link zathurarc)"          # zathura
 gen '~/.config/compton.conf'          "$(link compton.conf)"       # compton
 gen '~/.config/user-dirs.dirs'        "$(link xdg-user-dirs.dirs)" # XDG dirs
@@ -85,4 +89,3 @@ gen '~/.tmux.conf'                    "$(link tmux.conf)"          # tmux
 gen '~/.gitconfig'                    "$(link gitconfig)"          # git
 gen '~/.config/dunst/dunstrc'         "$(link dunstrc)"            # dunst
 gen '~/.config/i3'                    "$(link i3)"                 # i3
-gen '~/.config/mpv/input.conf'        "$(link mpv-input.conf)"     # mpv
