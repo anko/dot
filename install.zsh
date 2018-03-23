@@ -31,26 +31,26 @@ fi
 
 # Some shortcuts, for prettiness
 function exists () { [[ -e $1 ]] }
-function link () { echo "ln -sf $PWD/file/$1 \$TARGET" }
+function link () { echo "ln -sf '$PWD/file/$1' '\$TARGET'" }
 
 # This acts as the "domain-specific language" to specify how files should be
 # generated.  Replaces any occurrences of '$TARGET' in the command string with
 # the file path given as the first argument.  Implicitly creates all
 # directories without being asked.
 function gen () {
-    TARGET=$1            # Location where the config file should go
-    GENERATOR_COMMAND=$2 # Command string that will generate it
+    TARGET="$1"            # Location where the config file should go
+    GENERATOR_COMMAND="$2" # Command string that will generate it
+    GENERATOR_COMMAND_TARGETED="$(echo "$GENERATOR_COMMAND" | sed "s:\$TARGET:$(realpath $TARGET):")"
     if exists "$TARGET"; then
         print -P "%F{green}Exists%f: $TARGET"
     else
         print -P "%F{yellow}Installing%f: $TARGET"
         if (( $DRY_RUN )); then
-            print -P "%F{33}Would run%f $GENERATOR_COMMAND"
+            print -P "%F{33}Would run%f $GENERATOR_COMMAND_TARGETED"
         else
-            echo "mkdir --parents $(dirname $TARGET)" \
+            echo "mkdir --parents '$(dirname $TARGET)'" \
                 | tee >(source /dev/stdin)
-            echo "$GENERATOR_COMMAND" \
-                | sed "s:\$TARGET:$TARGET:" \
+            echo "$GENERATOR_COMMAND_TARGETED" \
                 | tee >(source /dev/stdin)
         fi
     fi
