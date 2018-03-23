@@ -80,6 +80,9 @@ gen '~/.XCompose'  "$(link xcompose)"
 gen '~/.config/mpv/input.conf' "$(link mpv/input.conf)"
 gen '~/.config/mpv/mpv.conf'   "$(link mpv/mpv.conf)"
 
+gen '~/.local/share/Steam/steamapps/common/dota 2 beta/game/dota/cfg/autoexec.cfg' \
+    "$(link dota-autoexec.cfg)"
+
 gen '~/.config/zathura/zathurarc'     "$(link zathurarc)"          # zathura
 gen '~/.config/compton.conf'          "$(link compton.conf)"       # compton
 gen '~/.config/user-dirs.dirs'        "$(link xdg-user-dirs.dirs)" # XDG dirs
