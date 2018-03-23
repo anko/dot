@@ -3,9 +3,10 @@
  - [`file/`](file/) contains my [dotfiles][wiki-dotfiles].
  - [`script/`](script/) contains scripts I keep in my [`$PATH`][wiki-path].
 
-My philosophy with personal configs is to aggressively minimise visual output,
-keystrokes, and scriptability, even if it means having to memorise loads of
-detail and making my system unusable by anyone else.
+My philosophy with personal configs is to aggressively minimise visual output
+and keystrokes, while maximising scriptability, even if it means having to
+memorise loads of detail and rely on text-based interfaces, and making my
+system unusable by others.
 
 Feel free to copy anything you find useful.
 
