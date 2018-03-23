@@ -80,6 +80,7 @@ nnoremap UI :wq<CR>
 nnoremap UJ :w<CR>
 nnoremap n nzzzv
 noremap ; :
+noremap Y "+
 
 "
 " Highlights
