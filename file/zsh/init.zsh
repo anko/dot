@@ -134,8 +134,13 @@ bindkey '\C-e' edit-command-line
 
 # Bind C-f to search for and insert a file with fzy
 insert_fzy_path() {
-    local selected_path
-    selected_path=$(fd --hidden | fzy -l20) || return
+    local selected_path already_typed_path words
+    words=("${(s/ /)LBUFFER}")
+    already_typed_path="${words[-1]}"
+    selected_path=$(fd --hidden | fzy -l20 --query="$already_typed_path") || return
+    if [[ "$already_typed_path" != '' ]]; then
+        zle backward-delete-word
+    fi
     zle -U "${(q)selected_path}"
     zle reset-prompt
 }
@@ -145,8 +150,8 @@ bindkey "^f" insert-fzy-path
 # Bind C-r to search for and insert a history line with fzy
 insert_fzy_history() {
     local selected_command
-    selected_command=$(cat "$HISTFILE" | fzy -l20) || return
-    zle -U "$selected_command"
+    selected_command=$(cat "$HISTFILE" | fzy -l20 --query="$BUFFER") || return
+    BUFFER="$selected_command"
     zle reset-prompt
 }
 zle -N insert-fzy-history insert_fzy_history
